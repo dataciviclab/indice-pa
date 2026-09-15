@@ -13,7 +13,7 @@ import streamlit as st
 from lab_connectors.duckdb.queries import load_mart_table, query_clean
 
 # -- Config --------------------------------------------------------------
-PREFIX = "ipa/"
+PREFIX = "indice-pa/"
 YEARS = [2026]
 _REPO = Path(__file__).resolve().parent.parent
 _REGISTRY = _REPO / "registry" / "registry.json"
