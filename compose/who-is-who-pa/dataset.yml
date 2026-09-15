@@ -1,0 +1,61 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "who_is_who_pa"
+  source_id: "dataciviclab_composite"
+  tags: [pa, who, is, who]
+  category: pa
+  years: [2026]
+
+raw:
+  output_policy: overwrite
+  sources:
+    - name: "ipa_enti_ref"
+      type: local_file
+      args:
+        path: "../../out/data/clean/ipa_enti/2026/ipa_enti_2026_clean.parquet"
+        filename: "ipa_enti_2026_clean.parquet"
+      primary: true
+
+support:
+  - name: ipa_enti
+    type: dataset
+    config: "../../datasets/ipa-enti/dataset.yml"
+    years: [2026]
+  - name: ipa_unita_organizzative
+    type: dataset
+    config: "../../datasets/ipa-unita-organizzative/dataset.yml"
+    years: [2026]
+  - name: ipa_aree_organizzative_omogenee
+    type: dataset
+    config: "../../datasets/ipa-aree-organizzative-omogenee/dataset.yml"
+    years: [2026]
+  - name: ipa_rtd
+    type: dataset
+    config: "../../datasets/ipa-rtd/dataset.yml"
+    years: [2026]
+  - name: ipa_categorie_enti
+    type: dataset
+    config: "../../datasets/ipa-categorie-enti/dataset.yml"
+    years: [2026]
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    source: "config_only"
+    mode: "latest"
+  validate:
+    min_rows: 100000
+
+mart:
+  tables:
+    - name: "who_is_who_pa"
+      sql: "sql/mart.sql"
+  validate:
+    table_rules:
+      who_is_who_pa:
+        min_rows: 100000
+
+validation:
+  fail_on_error: true

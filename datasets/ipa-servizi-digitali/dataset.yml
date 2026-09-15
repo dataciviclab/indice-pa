@@ -1,0 +1,62 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "ipa_servizi_digitali"
+  source_id: "agid"
+  tags: [pa, ipa, servizi, digitali, cad]
+  category: pa
+  years: [2026]
+
+raw:
+  output_policy: overwrite
+  sources:
+    - name: "ipa_servizi_digitali"
+      type: "http_file"
+      args:
+        url: "https://indicepa.gov.it/ipa-dati/dataset/8afa9350-34da-4b29-8647-01abcfe9c29c/resource/7ecd6b8e-ede7-41c6-a16d-fe263ac6baf1/download/servizi-digitali.xlsx"
+        filename: "servizi-digitali.xlsx"
+      primary: true
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    source: "auto"
+    mode: "latest"
+    header: true
+  required_columns:
+    - codice_ipa
+    - id_servizio
+    - descrizione_servizio
+  validate:
+    min_rows: 8000
+    not_null:
+      - codice_ipa
+      - id_servizio
+
+mart:
+  tables:
+    - name: "ipa_servizi_digitali"
+      sql: "sql/mart.sql"
+    - name: "ipa_servizi_digitali_riepilogo"
+      sql: "sql/mart_riepilogo.sql"
+  required_tables:
+    - "ipa_servizi_digitali"
+    - "ipa_servizi_digitali_riepilogo"
+  validate:
+    table_rules:
+      ipa_servizi_digitali:
+        primary_key: [codice_ipa, id_servizio]
+        not_null:
+          - codice_ipa
+          - id_servizio
+        min_rows: 8000
+      ipa_servizi_digitali_riepilogo:
+        primary_key: [codice_ipa]
+        not_null:
+          - codice_ipa
+          - n_servizi_digitali
+        min_rows: 1000
+
+validation:
+  fail_on_error: true

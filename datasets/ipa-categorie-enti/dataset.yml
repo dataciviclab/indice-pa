@@ -1,0 +1,54 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "ipa_categorie_enti"
+  source_id: "agid"
+  tags: [pa, ipa, categorie, lookup]
+  category: pa
+  years: [2026]
+
+raw:
+  output_policy: overwrite
+  sources:
+    - name: "ipa_categorie_enti"
+      type: "http_file"
+      args:
+        url: "https://indicepa.gov.it/ipa-dati/dataset/1c7034cd-8514-485d-8ff7-c72b5cb09a07/resource/84ebb2e7-0e61-427b-a1dd-ab8bb2a84f07/download/categorie-enti.xlsx"
+        filename: "categorie-enti.xlsx"
+      primary: true
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    source: "auto"
+    mode: "latest"
+    header: true
+  required_columns:
+    - codice_categoria
+    - nome_categoria
+    - tipologia_categoria
+  validate:
+    min_rows: 50
+    not_null:
+      - codice_categoria
+      - nome_categoria
+
+mart:
+  tables:
+    - name: "ipa_categorie_enti"
+      sql: "sql/mart.sql"
+  required_tables:
+    - "ipa_categorie_enti"
+  validate:
+    table_rules:
+      ipa_categorie_enti:
+        primary_key: [codice_categoria]
+        not_null:
+          - codice_categoria
+          - nome_categoria
+          - tipologia_categoria
+        min_rows: 50
+
+validation:
+  fail_on_error: true

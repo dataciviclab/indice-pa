@@ -1,0 +1,64 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "ipa_rtd"
+  source_id: "agid"
+  tags: [pa, ipa, rtd, transizione, digitale]
+  category: pa
+  years: [2026]
+
+raw:
+  output_policy: overwrite
+  sources:
+    - name: "ipa_rtd"
+      type: "http_file"
+      args:
+        url: "https://indicepa.gov.it/ipa-dati/dataset/f4f505b7-a86e-44dc-8215-fba0e0c4aac9/resource/41553dea-0701-429e-b906-8b71e441a281/download/responsabili-della-transizione-al-digitale.xlsx"
+        filename: "responsabili-della-transizione-al-digitale.xlsx"
+      primary: true
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    source: "auto"
+    mode: "latest"
+    header: true
+  required_columns:
+    - codice_ipa
+    - codice_uni_uo
+    - nome_responsabile
+    - cognome_responsabile
+  validate:
+    min_rows: 15000
+    not_null:
+      - codice_ipa
+      - codice_uni_uo
+
+mart:
+  tables:
+    - name: "ipa_rtd"
+      sql: "sql/mart.sql"
+    - name: "ipa_rtd_riepilogo"
+      sql: "sql/mart_riepilogo.sql"
+  required_tables:
+    - "ipa_rtd"
+    - "ipa_rtd_riepilogo"
+  validate:
+    table_rules:
+      ipa_rtd:
+        primary_key: [codice_uni_uo]
+        not_null:
+          - codice_ipa
+          - codice_uni_uo
+          - nome_responsabile
+        min_rows: 15000
+      ipa_rtd_riepilogo:
+        primary_key: [codice_ipa]
+        not_null:
+          - codice_ipa
+          - n_rtd
+        min_rows: 1000
+
+validation:
+  fail_on_error: true

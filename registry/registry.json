@@ -1,0 +1,1875 @@
+{
+  "schema_version": 1,
+  "repo": "indice-pa",
+  "source_repo": "indice-pa",
+  "updated_at": "2026-09-15",
+  "datasets": [
+    {
+      "slug": "ipa_aree_organizzative_omogenee",
+      "name": "Ipa Aree Organizzative Omogenee",
+      "description": "",
+      "source": "",
+      "source_id": "agid",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "tags": [
+        "pa",
+        "ipa",
+        "aree",
+        "organizzative",
+        "omogenee"
+      ],
+      "category": "pa",
+      "columns": [
+        {
+          "name": "codice_ipa",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "ipa_code"
+        },
+        {
+          "name": "denominazione_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_fiscale_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "fiscal_code"
+        },
+        {
+          "name": "codice_uni_aoo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "denominazione_aoo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "data_istituzione",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "nome_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "cognome_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "telefono_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_comune_istat",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "municipality_code"
+        },
+        {
+          "name": "codice_catastale_comune",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "cap",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "indirizzo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "telefono",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "fax",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail1",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail1",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail2",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail2",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail3",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail3",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "protocollo_informatico",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uri_protocollo_informatico",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "data_aggiornamento",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "cod_aoo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        }
+      ],
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-clean/indice-pa/ipa_aree_organizzative_omogenee/2026/ipa_aree_organizzative_omogenee_2026_clean.parquet",
+        "multi_file": false
+      },
+      "stage": "incubating",
+      "mart_refs": [
+        "ipa_aree_organizzative_omogenee__ipa_aree_organizzative_omogenee",
+        "ipa_aree_organizzative_omogenee__ipa_aree_organizzative_omogenee_riepilogo"
+      ]
+    },
+    {
+      "slug": "ipa_categorie_enti",
+      "name": "Ipa Categorie Enti",
+      "description": "",
+      "source": "",
+      "source_id": "agid",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "tags": [
+        "pa",
+        "ipa",
+        "categorie",
+        "lookup"
+      ],
+      "category": "pa",
+      "columns": [
+        {
+          "name": "codice_categoria",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "nome_categoria",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipologia_categoria",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "sfe",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "utd",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "nso",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "aoo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        }
+      ],
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-clean/indice-pa/ipa_categorie_enti/2026/ipa_categorie_enti_2026_clean.parquet",
+        "multi_file": false
+      },
+      "stage": "incubating",
+      "mart_refs": [
+        "ipa_categorie_enti__ipa_categorie_enti"
+      ]
+    },
+    {
+      "slug": "ipa_enti",
+      "name": "Ipa Enti",
+      "description": "",
+      "source": "",
+      "source_id": "agid",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "tags": [
+        "pa",
+        "ipa",
+        "enti"
+      ],
+      "category": "pa",
+      "columns": [
+        {
+          "name": "codice_ipa",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "ipa_code"
+        },
+        {
+          "name": "denominazione_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_fiscale_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "fiscal_code"
+        },
+        {
+          "name": "tipologia",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_categoria",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_natura",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_ateco",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "ateco_code"
+        },
+        {
+          "name": "ente_in_liquidazione",
+          "type": "BOOLEAN",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_miur",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_istat",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "municipality_code"
+        },
+        {
+          "name": "acronimo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "nome_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "cognome_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "titolo_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_comune_istat",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "municipality_code"
+        },
+        {
+          "name": "codice_catastale_comune",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "cap",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "indirizzo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail1",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail1",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail2",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail2",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail3",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail3",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail4",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail4",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail5",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail5",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "sito_istituzionale",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "data_aggiornamento",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        }
+      ],
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-clean/indice-pa/ipa_enti/2026/ipa_enti_2026_clean.parquet",
+        "multi_file": false
+      },
+      "stage": "incubating",
+      "mart_refs": [
+        "ipa_enti__ipa_enti",
+        "ipa_enti__ipa_enti_riepilogo"
+      ]
+    },
+    {
+      "slug": "ipa_rtd",
+      "name": "Ipa Rtd",
+      "description": "",
+      "source": "",
+      "source_id": "agid",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "tags": [
+        "pa",
+        "ipa",
+        "rtd",
+        "transizione",
+        "digitale"
+      ],
+      "category": "pa",
+      "columns": [
+        {
+          "name": "codice_ipa",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "ipa_code"
+        },
+        {
+          "name": "denominazione_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_fiscale_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "fiscal_code"
+        },
+        {
+          "name": "nome_categoria",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_uni_uo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "descrizione_uo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "data_istituzione",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "nome_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "cognome_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "telefono_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail1",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail1",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail2",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail2",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail3",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail3",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_comune_istat",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "municipality_code"
+        },
+        {
+          "name": "codice_catastale_comune",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "cap",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "indirizzo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "telefono",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "fax",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "data_aggiornamento",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipologia",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_categoria",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        }
+      ],
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-clean/indice-pa/ipa_rtd/2026/ipa_rtd_2026_clean.parquet",
+        "multi_file": false
+      },
+      "stage": "incubating",
+      "mart_refs": [
+        "ipa_rtd__ipa_rtd",
+        "ipa_rtd__ipa_rtd_riepilogo"
+      ]
+    },
+    {
+      "slug": "ipa_servizi_digitali",
+      "name": "Ipa Servizi Digitali",
+      "description": "",
+      "source": "",
+      "source_id": "agid",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "tags": [
+        "pa",
+        "ipa",
+        "servizi",
+        "digitali",
+        "cad"
+      ],
+      "category": "pa",
+      "columns": [
+        {
+          "name": "codice_ipa",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "ipa_code"
+        },
+        {
+          "name": "denominazione_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_fiscale_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "fiscal_code"
+        },
+        {
+          "name": "nome_categoria",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "id_servizio",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipologia_servizio",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "descrizione_servizio",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "url_servizio",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "data_aggiornamento",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        }
+      ],
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-clean/indice-pa/ipa_servizi_digitali/2026/ipa_servizi_digitali_2026_clean.parquet",
+        "multi_file": false
+      },
+      "stage": "incubating",
+      "mart_refs": [
+        "ipa_servizi_digitali__ipa_servizi_digitali",
+        "ipa_servizi_digitali__ipa_servizi_digitali_riepilogo"
+      ]
+    },
+    {
+      "slug": "ipa_servizi_uo",
+      "name": "Ipa Servizi Uo",
+      "description": "",
+      "source": "",
+      "source_id": "agid",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "tags": [
+        "pa",
+        "ipa",
+        "servizi",
+        "uo"
+      ],
+      "category": "pa",
+      "columns": [
+        {
+          "name": "codice_ipa",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "ipa_code"
+        },
+        {
+          "name": "denominazione_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_fiscale_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "fiscal_code"
+        },
+        {
+          "name": "nome_categoria",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_uni_uo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "descrizione_uo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "id_servizio",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "categoria_servizio",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "descrizione_servizio",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "data_aggiornamento",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        }
+      ],
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-clean/indice-pa/ipa_servizi_uo/2026/ipa_servizi_uo_2026_clean.parquet",
+        "multi_file": false
+      },
+      "stage": "incubating",
+      "mart_refs": [
+        "ipa_servizi_uo__ipa_servizi_uo",
+        "ipa_servizi_uo__ipa_servizi_uo_riepilogo"
+      ]
+    },
+    {
+      "slug": "ipa_unita_organizzative",
+      "name": "Ipa Unita Organizzative",
+      "description": "",
+      "source": "",
+      "source_id": "agid",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "tags": [
+        "pa",
+        "ipa",
+        "unita",
+        "organizzative"
+      ],
+      "category": "pa",
+      "columns": [
+        {
+          "name": "codice_ipa",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "ipa_code"
+        },
+        {
+          "name": "denominazione_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_fiscale_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "fiscal_code"
+        },
+        {
+          "name": "codice_uni_uo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_uni_aoo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_uni_uo_padre",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "descrizione_uo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "data_istituzione",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "nome_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "cognome_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "telefono_responsabile",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_comune_istat",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "municipality_code"
+        },
+        {
+          "name": "codice_catastale_comune",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "cap",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "indirizzo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "telefono",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "fax",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail1",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail1",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail2",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail2",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "mail3",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_mail3",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "data_aggiornamento",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "url",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        }
+      ],
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-clean/indice-pa/ipa_unita_organizzative/2026/ipa_unita_organizzative_2026_clean.parquet",
+        "multi_file": false
+      },
+      "stage": "incubating",
+      "mart_refs": [
+        "ipa_unita_organizzative__ipa_unita_organizzative",
+        "ipa_unita_organizzative__ipa_unita_organizzative_riepilogo"
+      ]
+    },
+    {
+      "slug": "who_is_who_pa",
+      "name": "Who Is Who Pa",
+      "description": "",
+      "source": "",
+      "source_id": "dataciviclab_composite",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "tags": [
+        "pa",
+        "who",
+        "is"
+      ],
+      "category": "pa",
+      "columns": [
+        {
+          "name": "codice_ipa",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "ipa_code"
+        },
+        {
+          "name": "denominazione_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_fiscale_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "fiscal_code"
+        },
+        {
+          "name": "codice_categoria",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "nome_categoria",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipologia_categoria",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipologia",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_istat",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "municipality_code"
+        },
+        {
+          "name": "acronimo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "vertice_ente_titolo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "vertice_ente_nome",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "vertice_ente_cognome",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "sito_istituzionale",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_uni_uo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "descrizione_uo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_uni_uo_padre",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uo_data_istituzione",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uo_resp_nome",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uo_resp_cognome",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uo_resp_email",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uo_resp_telefono",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uo_mail",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uo_tipo_mail",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uo_mail2",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uo_tipo_mail2",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_uni_aoo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "denominazione_aoo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "aoo_resp_nome",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "aoo_resp_cognome",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "aoo_mail",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "aoo_tipo_mail",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "protocollo_informatico",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uri_protocollo_informatico",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "rtd_nome",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "rtd_cognome",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "rtd_mail",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_comune_istat",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "municipality_code"
+        },
+        {
+          "name": "codice_catastale_comune",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "cap",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "indirizzo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "ente_codice_comune_istat",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "municipality_code"
+        }
+      ],
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-clean/indice-pa/who_is_who_pa/2026/who_is_who_pa_2026_clean.parquet",
+        "multi_file": false
+      },
+      "stage": "incubating",
+      "mart_refs": [
+        "who_is_who_pa__who_is_who_pa"
+      ]
+    }
+  ],
+  "marts": [
+    {
+      "slug": "ipa_aree_organizzative_omogenee__ipa_aree_organizzative_omogenee",
+      "dataset": "ipa_aree_organizzative_omogenee",
+      "table": "ipa_aree_organizzative_omogenee",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_aree_organizzative_omogenee/2026/ipa_aree_organizzative_omogenee.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_aree_organizzative_omogenee__ipa_aree_organizzative_omogenee_riepilogo",
+      "dataset": "ipa_aree_organizzative_omogenee",
+      "table": "ipa_aree_organizzative_omogenee_riepilogo",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_aree_organizzative_omogenee/2026/ipa_aree_organizzative_omogenee_riepilogo.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_categorie_enti__ipa_categorie_enti",
+      "dataset": "ipa_categorie_enti",
+      "table": "ipa_categorie_enti",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_categorie_enti/2026/ipa_categorie_enti.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_enti__ipa_enti",
+      "dataset": "ipa_enti",
+      "table": "ipa_enti",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_enti/2026/ipa_enti.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_enti__ipa_enti_riepilogo",
+      "dataset": "ipa_enti",
+      "table": "ipa_enti_riepilogo",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_enti/2026/ipa_enti_riepilogo.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_rtd__ipa_rtd",
+      "dataset": "ipa_rtd",
+      "table": "ipa_rtd",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_rtd/2026/ipa_rtd.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_rtd__ipa_rtd_riepilogo",
+      "dataset": "ipa_rtd",
+      "table": "ipa_rtd_riepilogo",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_rtd/2026/ipa_rtd_riepilogo.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_servizi_digitali__ipa_servizi_digitali",
+      "dataset": "ipa_servizi_digitali",
+      "table": "ipa_servizi_digitali",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_servizi_digitali/2026/ipa_servizi_digitali.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_servizi_digitali__ipa_servizi_digitali_riepilogo",
+      "dataset": "ipa_servizi_digitali",
+      "table": "ipa_servizi_digitali_riepilogo",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_servizi_digitali/2026/ipa_servizi_digitali_riepilogo.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_servizi_uo__ipa_servizi_uo",
+      "dataset": "ipa_servizi_uo",
+      "table": "ipa_servizi_uo",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_servizi_uo/2026/ipa_servizi_uo.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_servizi_uo__ipa_servizi_uo_riepilogo",
+      "dataset": "ipa_servizi_uo",
+      "table": "ipa_servizi_uo_riepilogo",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_servizi_uo/2026/ipa_servizi_uo_riepilogo.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_unita_organizzative__ipa_unita_organizzative",
+      "dataset": "ipa_unita_organizzative",
+      "table": "ipa_unita_organizzative",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_unita_organizzative/2026/ipa_unita_organizzative.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_unita_organizzative__ipa_unita_organizzative_riepilogo",
+      "dataset": "ipa_unita_organizzative",
+      "table": "ipa_unita_organizzative_riepilogo",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_unita_organizzative/2026/ipa_unita_organizzative_riepilogo.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "who_is_who_pa__who_is_who_pa",
+      "dataset": "who_is_who_pa",
+      "table": "who_is_who_pa",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/who_is_who_pa/2026/who_is_who_pa.parquet",
+        "multi_file": false
+      }
+    }
+  ],
+  "signals": [
+    {
+      "id": "compose:who_is_who_pa",
+      "source_id": "dataciviclab_composite",
+      "status": "ok",
+      "label": "who_is_who_pa",
+      "detail": "anno 2026 — mart: si",
+      "action": "",
+      "run": {
+        "run_id": "20260914T192128Z_d55196ec",
+        "year": 2026,
+        "status": "SUCCESS",
+        "quality_score": {
+          "raw": 100,
+          "clean": 100,
+          "mart": 100
+        },
+        "output_rows": {
+          "clean": 122706,
+          "mart": 122706
+        },
+        "output_bytes": {
+          "raw": 1874384,
+          "clean": 8663074,
+          "mart": 8663074
+        },
+        "started_at": "2026-09-14T19:21:28.384873+00:00",
+        "finished_at": "2026-09-14T19:21:33.678974+00:00",
+        "duration_seconds": 5.294
+      }
+    },
+    {
+      "id": "ipa_aree_organizzative_omogenee",
+      "source_id": "agid",
+      "status": "ok",
+      "label": "ipa_aree_organizzative_omogenee",
+      "detail": "anno 2026 — mart: si",
+      "action": "",
+      "run": {
+        "run_id": "20260914T151810Z_12a7d004",
+        "year": 2026,
+        "status": "SUCCESS",
+        "quality_score": {
+          "raw": 100,
+          "clean": 100,
+          "mart": 100
+        },
+        "output_rows": {
+          "clean": 39399,
+          "mart": 61184
+        },
+        "output_bytes": {
+          "raw": 6217753,
+          "clean": 3008458,
+          "mart": 3380150
+        },
+        "started_at": "2026-09-14T15:18:10.350214+00:00",
+        "finished_at": "2026-09-14T15:19:18.607450+00:00",
+        "duration_seconds": 68.257
+      }
+    },
+    {
+      "id": "ipa_categorie_enti",
+      "source_id": "agid",
+      "status": "ok",
+      "label": "ipa_categorie_enti",
+      "detail": "anno 2026 — mart: si",
+      "action": "",
+      "run": {
+        "run_id": "20260914T160121Z_17cb7fed",
+        "year": 2026,
+        "status": "SUCCESS",
+        "quality_score": {
+          "raw": 100,
+          "clean": 100,
+          "mart": 100
+        },
+        "output_rows": {
+          "clean": 53,
+          "mart": 53
+        },
+        "output_bytes": {
+          "raw": 8219,
+          "clean": 3306,
+          "mart": 3306
+        },
+        "started_at": "2026-09-14T16:01:21.731824+00:00",
+        "finished_at": "2026-09-14T16:01:23.878253+00:00",
+        "duration_seconds": 2.146
+      }
+    },
+    {
+      "id": "ipa_enti",
+      "source_id": "agid",
+      "status": "ok",
+      "label": "ipa_enti",
+      "detail": "anno 2026 — mart: si",
+      "action": "",
+      "run": {
+        "run_id": "20260914T192023Z_af7ecfa7",
+        "year": 2026,
+        "status": "SUCCESS",
+        "quality_score": {
+          "mart": 100
+        },
+        "output_rows": {
+          "mart": 23781
+        },
+        "output_bytes": {
+          "mart": 1877388
+        },
+        "started_at": "2026-09-14T19:20:23.399914+00:00",
+        "finished_at": "2026-09-14T19:20:24.086589+00:00",
+        "duration_seconds": 0.687
+      }
+    },
+    {
+      "id": "ipa_rtd",
+      "source_id": "agid",
+      "status": "ok",
+      "label": "ipa_rtd",
+      "detail": "anno 2026 — mart: si",
+      "action": "",
+      "run": {
+        "run_id": "20260914T192108Z_4792a595",
+        "year": 2026,
+        "status": "SUCCESS",
+        "quality_score": {
+          "mart": 100
+        },
+        "output_rows": {
+          "mart": 41760
+        },
+        "output_bytes": {
+          "mart": 1732469
+        },
+        "started_at": "2026-09-14T19:21:08.522620+00:00",
+        "finished_at": "2026-09-14T19:21:09.215047+00:00",
+        "duration_seconds": 0.692
+      }
+    },
+    {
+      "id": "ipa_servizi_digitali",
+      "source_id": "agid",
+      "status": "ok",
+      "label": "ipa_servizi_digitali",
+      "detail": "anno 2026 — mart: si",
+      "action": "",
+      "run": {
+        "run_id": "20260914T154411Z_5d1fd515",
+        "year": 2026,
+        "status": "SUCCESS",
+        "quality_score": {
+          "raw": 100,
+          "clean": 100,
+          "mart": 100
+        },
+        "output_rows": {
+          "clean": 10142,
+          "mart": 13562
+        },
+        "output_bytes": {
+          "raw": 977831,
+          "clean": 426445,
+          "mart": 486677
+        },
+        "started_at": "2026-09-14T15:44:11.889358+00:00",
+        "finished_at": "2026-09-14T15:44:23.905007+00:00",
+        "duration_seconds": 12.016
+      }
+    },
+    {
+      "id": "ipa_servizi_uo",
+      "source_id": "agid",
+      "status": "ok",
+      "label": "ipa_servizi_uo",
+      "detail": "anno 2026 — mart: si",
+      "action": "",
+      "run": {
+        "run_id": "20260914T154502Z_d5422733",
+        "year": 2026,
+        "status": "SUCCESS",
+        "quality_score": {
+          "raw": 100,
+          "clean": 100,
+          "mart": 100
+        },
+        "output_rows": {
+          "clean": 6222,
+          "mart": 7554
+        },
+        "output_bytes": {
+          "raw": 433001,
+          "clean": 197416,
+          "mart": 220639
+        },
+        "started_at": "2026-09-14T15:45:02.696624+00:00",
+        "finished_at": "2026-09-14T15:45:10.003176+00:00",
+        "duration_seconds": 7.307
+      }
+    },
+    {
+      "id": "ipa_unita_organizzative",
+      "source_id": "agid",
+      "status": "ok",
+      "label": "ipa_unita_organizzative",
+      "detail": "anno 2026 — mart: si",
+      "action": "",
+      "run": {
+        "run_id": "20260914T192101Z_fdc96549",
+        "year": 2026,
+        "status": "SUCCESS",
+        "quality_score": {
+          "mart": 100
+        },
+        "output_rows": {
+          "mart": 146238
+        },
+        "output_bytes": {
+          "mart": 7285533
+        },
+        "started_at": "2026-09-14T19:21:01.232368+00:00",
+        "finished_at": "2026-09-14T19:21:03.043790+00:00",
+        "duration_seconds": 1.811
+      }
+    }
+  ],
+  "codelists": [],
+  "entities": {
+    "entities": {
+      "Attività economica": {
+        "entity": "Attività economica",
+        "label": "Attività economica",
+        "datasets": [
+          {
+            "slug": "ipa_enti",
+            "name": "Ipa Enti",
+            "column": "codice_ateco",
+            "semantic_type": "ateco_code"
+          }
+        ],
+        "types": {
+          "ateco_code": 1
+        }
+      },
+      "Comune": {
+        "entity": "Comune",
+        "label": "Comune (ISTAT)",
+        "datasets": [
+          {
+            "slug": "ipa_aree_organizzative_omogenee",
+            "name": "Ipa Aree Organizzative Omogenee",
+            "column": "codice_comune_istat",
+            "semantic_type": "municipality_code"
+          },
+          {
+            "slug": "ipa_enti",
+            "name": "Ipa Enti",
+            "column": "codice_istat",
+            "semantic_type": "municipality_code"
+          },
+          {
+            "slug": "ipa_enti",
+            "name": "Ipa Enti",
+            "column": "codice_comune_istat",
+            "semantic_type": "municipality_code"
+          },
+          {
+            "slug": "ipa_rtd",
+            "name": "Ipa Rtd",
+            "column": "codice_comune_istat",
+            "semantic_type": "municipality_code"
+          },
+          {
+            "slug": "ipa_unita_organizzative",
+            "name": "Ipa Unita Organizzative",
+            "column": "codice_comune_istat",
+            "semantic_type": "municipality_code"
+          },
+          {
+            "slug": "who_is_who_pa",
+            "name": "Who Is Who Pa",
+            "column": "codice_istat",
+            "semantic_type": "municipality_code"
+          },
+          {
+            "slug": "who_is_who_pa",
+            "name": "Who Is Who Pa",
+            "column": "codice_comune_istat",
+            "semantic_type": "municipality_code"
+          },
+          {
+            "slug": "who_is_who_pa",
+            "name": "Who Is Who Pa",
+            "column": "ente_codice_comune_istat",
+            "semantic_type": "municipality_code"
+          }
+        ],
+        "types": {
+          "municipality_code": 8
+        }
+      },
+      "Ente": {
+        "entity": "Ente",
+        "label": "Ente pubblico",
+        "datasets": [
+          {
+            "slug": "ipa_aree_organizzative_omogenee",
+            "name": "Ipa Aree Organizzative Omogenee",
+            "column": "codice_ipa",
+            "semantic_type": "ipa_code"
+          },
+          {
+            "slug": "ipa_enti",
+            "name": "Ipa Enti",
+            "column": "codice_ipa",
+            "semantic_type": "ipa_code"
+          },
+          {
+            "slug": "ipa_rtd",
+            "name": "Ipa Rtd",
+            "column": "codice_ipa",
+            "semantic_type": "ipa_code"
+          },
+          {
+            "slug": "ipa_servizi_digitali",
+            "name": "Ipa Servizi Digitali",
+            "column": "codice_ipa",
+            "semantic_type": "ipa_code"
+          },
+          {
+            "slug": "ipa_servizi_uo",
+            "name": "Ipa Servizi Uo",
+            "column": "codice_ipa",
+            "semantic_type": "ipa_code"
+          },
+          {
+            "slug": "ipa_unita_organizzative",
+            "name": "Ipa Unita Organizzative",
+            "column": "codice_ipa",
+            "semantic_type": "ipa_code"
+          },
+          {
+            "slug": "who_is_who_pa",
+            "name": "Who Is Who Pa",
+            "column": "codice_ipa",
+            "semantic_type": "ipa_code"
+          }
+        ],
+        "types": {
+          "ipa_code": 7
+        }
+      },
+      "Ente (o Impresa)": {
+        "entity": "Ente (o Impresa)",
+        "label": "Ente (o Impresa)",
+        "datasets": [
+          {
+            "slug": "ipa_aree_organizzative_omogenee",
+            "name": "Ipa Aree Organizzative Omogenee",
+            "column": "codice_fiscale_ente",
+            "semantic_type": "fiscal_code"
+          },
+          {
+            "slug": "ipa_enti",
+            "name": "Ipa Enti",
+            "column": "codice_fiscale_ente",
+            "semantic_type": "fiscal_code"
+          },
+          {
+            "slug": "ipa_rtd",
+            "name": "Ipa Rtd",
+            "column": "codice_fiscale_ente",
+            "semantic_type": "fiscal_code"
+          },
+          {
+            "slug": "ipa_servizi_digitali",
+            "name": "Ipa Servizi Digitali",
+            "column": "codice_fiscale_ente",
+            "semantic_type": "fiscal_code"
+          },
+          {
+            "slug": "ipa_servizi_uo",
+            "name": "Ipa Servizi Uo",
+            "column": "codice_fiscale_ente",
+            "semantic_type": "fiscal_code"
+          },
+          {
+            "slug": "ipa_unita_organizzative",
+            "name": "Ipa Unita Organizzative",
+            "column": "codice_fiscale_ente",
+            "semantic_type": "fiscal_code"
+          },
+          {
+            "slug": "who_is_who_pa",
+            "name": "Who Is Who Pa",
+            "column": "codice_fiscale_ente",
+            "semantic_type": "fiscal_code"
+          }
+        ],
+        "types": {
+          "fiscal_code": 7
+        }
+      }
+    },
+    "bridges": []
+  }
+}

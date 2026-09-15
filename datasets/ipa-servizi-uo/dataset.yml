@@ -1,0 +1,65 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "ipa_servizi_uo"
+  source_id: "agid"
+  tags: [pa, ipa, servizi, uo]
+  category: pa
+  years: [2026]
+
+raw:
+  output_policy: overwrite
+  sources:
+    - name: "ipa_servizi_uo"
+      type: "http_file"
+      args:
+        url: "https://indicepa.gov.it/ipa-dati/dataset/d64c149e-a60e-4a10-b9cf-7230b0db8437/resource/aa9a34a8-6e0a-4720-9275-a7b1feb4e3a0/download/servizi-delle-unita-organizzative.xlsx"
+        filename: "servizi-delle-unita-organizzative.xlsx"
+      primary: true
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    source: "auto"
+    mode: "latest"
+    header: true
+  required_columns:
+    - codice_ipa
+    - codice_uni_uo
+    - id_servizio
+    - descrizione_servizio
+  validate:
+    min_rows: 5000
+    not_null:
+      - codice_ipa
+      - codice_uni_uo
+      - id_servizio
+
+mart:
+  tables:
+    - name: "ipa_servizi_uo"
+      sql: "sql/mart.sql"
+    - name: "ipa_servizi_uo_riepilogo"
+      sql: "sql/mart_riepilogo.sql"
+  required_tables:
+    - "ipa_servizi_uo"
+    - "ipa_servizi_uo_riepilogo"
+  validate:
+    table_rules:
+      ipa_servizi_uo:
+        primary_key: [codice_uni_uo, id_servizio]
+        not_null:
+          - codice_ipa
+          - codice_uni_uo
+          - id_servizio
+        min_rows: 5000
+      ipa_servizi_uo_riepilogo:
+        primary_key: [codice_ipa]
+        not_null:
+          - codice_ipa
+          - n_servizi
+        min_rows: 500
+
+validation:
+  fail_on_error: true
