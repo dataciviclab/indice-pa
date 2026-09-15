@@ -50,7 +50,7 @@ with col2:
     st.markdown("**Responsabili per tipologia ente**")
     df_tip = (
         df_uo.groupby("tipologia")
-        .agg(n_uo=("codice_uni_uo", "count"), 
+        .agg(n_uo=("denominazione_ente", "count"), 
              con_resp=("uo_resp_nome", lambda x: x.notna().sum()))
         .reset_index()
     )
