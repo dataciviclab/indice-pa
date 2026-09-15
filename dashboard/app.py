@@ -1,12 +1,18 @@
 """IPA — Anagrafe PA e Trasformazione Digitale Dashboard."""
 
 import streamlit as st
+from lab_connectors.branding import apply_branding
 
 st.set_page_config(
     page_title="IPA · Anagrafe PA",
     page_icon="🏛️",
     layout="wide",
     initial_sidebar_state="expanded",
+)
+
+apply_branding(
+    repo_name="indice-pa",
+    repo_url="https://github.com/dataciviclab/indice-pa",
 )
 
 pages = {
