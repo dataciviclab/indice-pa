@@ -58,7 +58,7 @@ def query(sql: str, year: int = 2026, slug: str = "") -> pd.DataFrame:
 
 # -- Compose (cached once) -----------------------------------------------
 
-@st.cache_data(ttl=3600, show_spinner=False)
+@st.cache_data(ttl=3600, show_spinner=True)
 def _load_compose() -> pd.DataFrame:
     """Load the compose mart once, shared across all functions."""
     return _mart("who_is_who_pa", "who_is_who_pa", 2026)
@@ -89,13 +89,13 @@ def enti_per_categoria():
     )
 
 
-@st.cache_data(ttl=3600, show_spinner=False)
+@st.cache_data(ttl=3600, show_spinner=True)
 def top_enti_per_uo(top_n=15):
     df = _mart("ipa_unita_organizzative", "ipa_unita_organizzative_riepilogo")
     return df[["denominazione_ente", "n_uo", "n_aoo", "pct_con_responsabile"]].sort_values("n_uo", ascending=False).head(top_n)
 
 
-@st.cache_data(ttl=3600, show_spinner=False)
+@st.cache_data(ttl=3600, show_spinner=True)
 def copertura_responsabili():
     df = _mart("ipa_unita_organizzative", "ipa_unita_organizzative_riepilogo")
     totale = int(df["n_uo"].sum())
@@ -186,7 +186,7 @@ def info_ente(nome_ente: str) -> dict:
 
 # -- Trasformazione Digitale --------------------------------------------
 
-@st.cache_data(ttl=3600, show_spinner=False)
+@st.cache_data(ttl=3600, show_spinner=True)
 def kpi_digitale():
     df_rtd = _mart("ipa_rtd", "ipa_rtd_riepilogo")
     df_sd = _mart("ipa_servizi_digitali", "ipa_servizi_digitali_riepilogo")
@@ -201,13 +201,13 @@ def kpi_digitale():
     }
 
 
-@st.cache_data(ttl=3600, show_spinner=False)
+@st.cache_data(ttl=3600, show_spinner=True)
 def top_enti_servizi_digitali(top_n=15):
     df = _mart("ipa_servizi_digitali", "ipa_servizi_digitali_riepilogo")
     return df[["denominazione_ente", "n_servizi_digitali", "n_tipologie", "pct_con_url"]].sort_values("n_servizi_digitali", ascending=False).head(top_n)
 
 
-@st.cache_data(ttl=3600, show_spinner=False)
+@st.cache_data(ttl=3600, show_spinner=True)
 def tipologie_servizi_digitali():
     df = _mart("ipa_servizi_digitali", "ipa_servizi_digitali")
     return (
@@ -220,7 +220,7 @@ def tipologie_servizi_digitali():
     )
 
 
-@st.cache_data(ttl=3600, show_spinner=False)
+@st.cache_data(ttl=3600, show_spinner=True)
 def categorie_servizi_uo():
     df = _mart("ipa_servizi_uo", "ipa_servizi_uo")
     return (
@@ -232,7 +232,7 @@ def categorie_servizi_uo():
     )
 
 
-@st.cache_data(ttl=3600, show_spinner=False)
+@st.cache_data(ttl=3600, show_spinner=True)
 def servizi_digitali_ente(nome_ente: str) -> pd.DataFrame:
     df = _mart("ipa_servizi_digitali", "ipa_servizi_digitali")
     return df[df["denominazione_ente"] == nome_ente][
@@ -240,7 +240,7 @@ def servizi_digitali_ente(nome_ente: str) -> pd.DataFrame:
     ]
 
 
-@st.cache_data(ttl=3600, show_spinner=False)
+@st.cache_data(ttl=3600, show_spinner=True)
 def servizi_uo_ente(nome_ente: str) -> pd.DataFrame:
     df = _mart("ipa_servizi_uo", "ipa_servizi_uo")
     return df[df["denominazione_ente"] == nome_ente][
