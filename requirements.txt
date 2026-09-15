@@ -1,5 +1,5 @@
 # Dipendenze runtime del repo
 dataciviclab-toolkit @ git+https://github.com/dataciviclab/toolkit.git
-dataciviclab-lab-connectors[duckdb] @ git+https://github.com/dataciviclab/lab-connectors.git
+lab-connectors[duckdb] @ git+https://github.com/dataciviclab/lab-connectors.git
 duckdb>=1.5.3
 streamlit>=1.35
