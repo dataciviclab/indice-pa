@@ -44,7 +44,7 @@ with col1:
     st.markdown("**UO con nomi placeholder** (trattati come NULL)")
     placeholder_counts = df_uo[df_uo["uo_resp_nome"].str.lower().isin(placeholder_names)]["uo_resp_nome"].str.lower().value_counts().reset_index()
     placeholder_counts.columns = ["placeholder", "n"]
-    st.dataframe(placeholder_counts, use_container_width=True, hide_index=True)
+    st.dataframe(placeholder_counts, width="stretch", hide_index=True)
 
 with col2:
     st.markdown("**Responsabili per tipologia ente**")
@@ -58,7 +58,7 @@ with col2:
     df_tip = df_tip.sort_values("n_uo", ascending=False)
     st.dataframe(
         df_tip[["tipologia", "n_uo", "con_resp", "copertura_pct"]],
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         column_config={
             "tipologia": st.column_config.TextColumn("Tipologia", width="large"),
@@ -81,7 +81,7 @@ email_stats = pd.DataFrame({
 email_stats["pct"] = (100 * email_stats["N° UO"] / len(df_uo)).round(1)
 st.dataframe(
     email_stats[["Tipo", "N° UO", "pct"]],
-    use_container_width=True,
+    width="stretch",
     hide_index=True,
     column_config={
         "Tipo": st.column_config.TextColumn("Tipo", width="medium"),

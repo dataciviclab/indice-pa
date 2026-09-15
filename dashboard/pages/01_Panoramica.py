@@ -31,7 +31,7 @@ with col1:
     df_cat = enti_per_categoria()
     st.dataframe(
         df_cat[["nome_categoria", "n_enti"]].head(15),
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         column_config={
             "nome_categoria": st.column_config.TextColumn("Categoria", width="large"),
@@ -44,7 +44,7 @@ with col2:
     df_vert = vertici_per_titolo()
     st.dataframe(
         df_vert,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         column_config={
             "vertice_ente_titolo": st.column_config.TextColumn("Titolo", width="medium"),
@@ -57,7 +57,7 @@ st.subheader("Enti con più unità organizzative")
 df_top = top_enti_per_uo()
 st.dataframe(
     df_top,
-    use_container_width=True,
+    width="stretch",
     hide_index=True,
     column_config={
         "denominazione_ente": st.column_config.TextColumn("Ente", width="large"),

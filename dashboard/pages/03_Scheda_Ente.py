@@ -51,7 +51,7 @@ with tab_uo:
             "uo_resp_email", "uo_resp_telefono", "uo_mail", "uo_tipo_mail",
             "denominazione_aoo",
         ]],
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         column_config={
             "descrizione_uo": st.column_config.TextColumn("Unità organizzativa", width="large"),
@@ -74,7 +74,7 @@ with tab_sd:
         st.subheader(f"Servizi digitali ({len(df_sd)})")
         st.dataframe(
             df_sd,
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
             column_config={
                 "tipologia_servizio": st.column_config.TextColumn("Tipologia", width="large"),
@@ -92,7 +92,7 @@ with tab_su:
         st.subheader(f"Servizi per UO ({len(df_su)})")
         st.dataframe(
             df_su,
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
             column_config={
                 "descrizione_uo": st.column_config.TextColumn("UO", width="large"),

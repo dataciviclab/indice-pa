@@ -20,7 +20,7 @@ st.info(f"{len(df)} risultati")
 
 st.dataframe(
     df,
-    use_container_width=True,
+    width="stretch",
     hide_index=True,
     column_config={
         "denominazione_ente": st.column_config.TextColumn("Ente", width="medium"),

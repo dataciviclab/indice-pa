@@ -46,6 +46,6 @@ if st.button("Esegui", type="primary") and sql.strip():
         try:
             df = query(sql)
             st.success(f"{len(df)} righe restituite")
-            st.dataframe(df, use_container_width=True, hide_index=True)
+            st.dataframe(df, width="stretch", hide_index=True)
         except Exception as e:
             st.error(f"Errore: {e}")

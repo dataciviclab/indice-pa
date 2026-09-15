@@ -21,7 +21,7 @@ st.subheader("Top enti per servizi digitali")
 df_top = top_enti_servizi_digitali()
 st.dataframe(
     df_top,
-    use_container_width=True,
+    width="stretch",
     hide_index=True,
     column_config={
         "denominazione_ente": st.column_config.TextColumn("Ente", width="large"),
@@ -39,7 +39,7 @@ with col1:
     df_tip = tipologie_servizi_digitali()
     st.dataframe(
         df_tip[["tipologia_servizio", "n", "n_enti"]].head(10),
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         column_config={
             "tipologia_servizio": st.column_config.TextColumn("Tipologia", width="large"),
@@ -53,7 +53,7 @@ with col2:
     df_cat = categorie_servizi_uo()
     st.dataframe(
         df_cat[["categoria_servizio", "n", "n_enti"]].head(10),
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         column_config={
             "categoria_servizio": st.column_config.TextColumn("Categoria", width="large"),
