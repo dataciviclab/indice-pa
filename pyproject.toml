@@ -18,6 +18,11 @@ dependencies = [
     "openpyxl>=3.1",
 ]
 
+# Nessun package Python: il repo è dati + SQL + scripts.
+# Esplicito per evitare il flat-layout discovery di setuptools.
+[tool.setuptools]
+packages = []
+
 [project.optional-dependencies]
 dashboard = [
     "streamlit>=1.61",
