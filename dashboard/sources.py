@@ -74,6 +74,8 @@ def kpi_totali():
         "uo": int(len(df)),
         "aoo": int(df["codice_uni_aoo"].dropna().nunique()),
         "con_responsabile": int(df["uo_resp_nome"].notna().sum()),
+        "enti_con_domicilio": int(df.loc[df["ente_ha_domicilio"], "codice_ipa"].nunique()),
+        "uo_con_domicilio": int(df["uo_ha_domicilio"].sum()),
     }
 
 
@@ -146,7 +148,7 @@ def cerca_ufficio(search: str = "", ente: str = "", limit: int = 200) -> pd.Data
     cols = [
         "denominazione_ente", "descrizione_uo", "uo_resp_nome", "uo_resp_cognome",
         "uo_resp_email", "uo_mail", "uo_tipo_mail", "denominazione_aoo",
-        "rtd_nome", "rtd_cognome", "rtd_mail",
+        "rtd_nome", "rtd_cognome", "rtd_mail", "uo_domicilio_digitale",
     ]
     return df[cols].head(limit)
 
@@ -180,8 +182,40 @@ def info_ente(nome_ente: str) -> dict:
         "vertice_nome": row.get("vertice_ente_nome", ""),
         "vertice_cognome": row.get("vertice_ente_cognome", ""),
         "sito": row.get("sito_istituzionale", ""),
+        "ente_ha_domicilio": bool(row.get("ente_ha_domicilio", False)),
         "n_uo": int(df[df["denominazione_ente"].str.lower() == nome_ente.lower()].shape[0]),
     }
+
+
+# -- Domicili digitali ---------------------------------------------------
+
+@st.cache_data(ttl=3600, show_spinner=True)
+def kpi_domicili():
+    """KPI dal registro AgID dei domicili digitali (mart riepilogo)."""
+    df_ente = _mart("ipa_domicili_digitali", "ipa_domicili_digitali_riepilogo")
+    df_uo = _mart("ipa_domicili_digitali_uo", "ipa_domicili_digitali_uo_riepilogo")
+    return {
+        "enti_con_domicilio": int(len(df_ente)),
+        "totale_domicili_ente": int(df_ente["n_domicili"].sum()),
+        "totale_pec_ente": int(df_ente["n_pec"].sum()),
+        "totale_serc_ente": int(df_ente["n_serc"].sum()),
+        "enti_con_domicilio_uo": int(len(df_uo)),
+        "totale_domicili_uo": int(df_uo["n_domicili_uo"].sum()),
+        "uo_con_domicilio": int(df_uo["n_uo_con_domicilio"].sum()),
+    }
+
+
+@st.cache_data(ttl=3600, show_spinner=False)
+def domicili_per_tipologia() -> pd.DataFrame:
+    """Copertura domicilio UO per tipologia ente (dal compose)."""
+    df = _load_compose()
+    return (
+        df.groupby("tipologia")
+        .agg(n_uo=("codice_ipa", "count"), uo_con_domicilio=("uo_ha_domicilio", "sum"))
+        .reset_index()
+        .assign(copertura_pct=lambda d: (100 * d["uo_con_domicilio"] / d["n_uo"]).round(1))
+        .sort_values("n_uo", ascending=False)
+    )
 
 
 # -- Trasformazione Digitale --------------------------------------------

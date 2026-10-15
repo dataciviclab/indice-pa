@@ -12,6 +12,7 @@ SELECT
     uo_resp_nome,
     uo_resp_cognome,
     uo_resp_email,
+    uo_resp_telefono,
     uo_mail,
     uo_tipo_mail,
     codice_uni_aoo,
