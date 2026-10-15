@@ -37,7 +37,7 @@ li trasforma in mart analitici e li rende interrogabili via dashboard Streamlit.
 
 | Compose | Support | Mart | Descrizione |
 |---|---|---|---|
-| who_is_who_pa | 5 | 1 | Vista unica: UO + ente + AOO + RTD + categorie |
+| who_is_who_pa | 7 | 1 | Vista unica: UO + ente + AOO + RTD + categorie + domicili digitali |
 
 ### Mart analitici (20 totali)
 
