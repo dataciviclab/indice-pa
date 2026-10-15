@@ -2,7 +2,7 @@
   "schema_version": 1,
   "repo": "indice-pa",
   "source_repo": "dataciviclab/indice-pa",
-  "updated_at": "2026-10-02",
+  "updated_at": "2026-10-15",
   "datasets": [
     {
       "slug": "ipa_aree_organizzative_omogenee",
@@ -96,7 +96,8 @@
           "name": "codice_catastale_comune",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": ""
+          "description": "",
+          "semantic_type": "cadastral_code"
         },
         {
           "name": "cap",
@@ -272,6 +273,188 @@
       ]
     },
     {
+      "slug": "ipa_domicili_digitali",
+      "name": "Ipa Domicili Digitali",
+      "description": "",
+      "source": "",
+      "source_id": "agid",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "tags": [
+        "pa",
+        "ipa",
+        "domicili",
+        "digitale",
+        "pec",
+        "serc"
+      ],
+      "category": "pa",
+      "columns": [
+        {
+          "name": "domicilio_digitale",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_domicilio_digitale",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "data_pubblicazione",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_ipa",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "ipa_code"
+        },
+        {
+          "name": "denominazione_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_fiscale_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "fiscal_code"
+        },
+        {
+          "name": "nome_categoria",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_uni_aoo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "descrizione_aoo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "data_aggiornamento",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        }
+      ],
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-clean/indice-pa/ipa_domicili_digitali/2026/ipa_domicili_digitali_2026_clean.parquet",
+        "multi_file": false
+      },
+      "stage": "incubating",
+      "mart_refs": [
+        "ipa_domicili_digitali__ipa_domicili_digitali",
+        "ipa_domicili_digitali__ipa_domicili_digitali_riepilogo"
+      ]
+    },
+    {
+      "slug": "ipa_domicili_digitali_uo",
+      "name": "Ipa Domicili Digitali Uo",
+      "description": "",
+      "source": "",
+      "source_id": "agid",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "tags": [
+        "pa",
+        "ipa",
+        "domicili",
+        "digitale",
+        "pec",
+        "serc",
+        "uo"
+      ],
+      "category": "pa",
+      "columns": [
+        {
+          "name": "domicilio_digitale",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "tipo_domicilio_digitale",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "data_pubblicazione",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_ipa",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": "",
+          "semantic_type": "ipa_code"
+        },
+        {
+          "name": "denominazione_ente",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_uni_uo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "descrizione_uo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "codice_uni_aoo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "descrizione_aoo",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        }
+      ],
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-clean/indice-pa/ipa_domicili_digitali_uo/2026/ipa_domicili_digitali_uo_2026_clean.parquet",
+        "multi_file": false
+      },
+      "stage": "incubating",
+      "mart_refs": [
+        "ipa_domicili_digitali_uo__ipa_domicili_digitali_uo",
+        "ipa_domicili_digitali_uo__ipa_domicili_digitali_uo_riepilogo"
+      ]
+    },
+    {
       "slug": "ipa_enti",
       "name": "Ipa Enti",
       "description": "",
@@ -343,7 +526,8 @@
           "name": "codice_miur",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": ""
+          "description": "",
+          "semantic_type": "miur_code"
         },
         {
           "name": "codice_istat",
@@ -387,7 +571,8 @@
           "name": "codice_catastale_comune",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": ""
+          "description": "",
+          "semantic_type": "cadastral_code"
         },
         {
           "name": "cap",
@@ -619,7 +804,8 @@
           "name": "codice_catastale_comune",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": ""
+          "description": "",
+          "semantic_type": "cadastral_code"
         },
         {
           "name": "cap",
@@ -957,7 +1143,8 @@
           "name": "codice_catastale_comune",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": ""
+          "description": "",
+          "semantic_type": "cadastral_code"
         },
         {
           "name": "cap",
@@ -1280,6 +1467,54 @@
           "description": ""
         },
         {
+          "name": "ente_n_domicili",
+          "type": "BIGINT",
+          "role": "metric",
+          "description": ""
+        },
+        {
+          "name": "ente_n_pec",
+          "type": "BIGINT",
+          "role": "metric",
+          "description": ""
+        },
+        {
+          "name": "ente_n_serc",
+          "type": "BIGINT",
+          "role": "metric",
+          "description": ""
+        },
+        {
+          "name": "ente_ha_domicilio",
+          "type": "BOOLEAN",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uo_n_domicili",
+          "type": "BIGINT",
+          "role": "metric",
+          "description": ""
+        },
+        {
+          "name": "uo_domicilio_digitale",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uo_tipo_domicilio",
+          "type": "VARCHAR",
+          "role": "dimension",
+          "description": ""
+        },
+        {
+          "name": "uo_ha_domicilio",
+          "type": "BOOLEAN",
+          "role": "dimension",
+          "description": ""
+        },
+        {
           "name": "codice_comune_istat",
           "type": "VARCHAR",
           "role": "dimension",
@@ -1290,7 +1525,8 @@
           "name": "codice_catastale_comune",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": ""
+          "description": "",
+          "semantic_type": "cadastral_code"
         },
         {
           "name": "cap",
@@ -1351,6 +1587,46 @@
       "location": {
         "type": "gcs",
         "path": "gs://dataciviclab-mart/indice-pa/ipa_categorie_enti/2026/ipa_categorie_enti.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_domicili_digitali__ipa_domicili_digitali",
+      "dataset": "ipa_domicili_digitali",
+      "table": "ipa_domicili_digitali",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_domicili_digitali/2026/ipa_domicili_digitali.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_domicili_digitali__ipa_domicili_digitali_riepilogo",
+      "dataset": "ipa_domicili_digitali",
+      "table": "ipa_domicili_digitali_riepilogo",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_domicili_digitali/2026/ipa_domicili_digitali_riepilogo.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_domicili_digitali_uo__ipa_domicili_digitali_uo",
+      "dataset": "ipa_domicili_digitali_uo",
+      "table": "ipa_domicili_digitali_uo",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_domicili_digitali_uo/2026/ipa_domicili_digitali_uo.parquet",
+        "multi_file": false
+      }
+    },
+    {
+      "slug": "ipa_domicili_digitali_uo__ipa_domicili_digitali_uo_riepilogo",
+      "dataset": "ipa_domicili_digitali_uo",
+      "table": "ipa_domicili_digitali_uo_riepilogo",
+      "location": {
+        "type": "gcs",
+        "path": "gs://dataciviclab-mart/indice-pa/ipa_domicili_digitali_uo/2026/ipa_domicili_digitali_uo_riepilogo.parquet",
         "multi_file": false
       }
     },
@@ -1474,7 +1750,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20261002T124132Z_1839e817",
+        "run_id": "20261015T133041Z_68027ab0",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1483,17 +1759,17 @@
           "mart": 100
         },
         "output_rows": {
-          "clean": 122817,
-          "mart": 122817
+          "clean": 123019,
+          "mart": 123019
         },
         "output_bytes": {
-          "raw": 1876427,
-          "clean": 8675999,
-          "mart": 4391063
+          "raw": 1877753,
+          "clean": 9099359,
+          "mart": 4769648
         },
-        "started_at": "2026-10-02T12:41:32.768677+00:00",
-        "finished_at": "2026-10-02T12:41:34.112574+00:00",
-        "duration_seconds": 1.344
+        "started_at": "2026-10-15T13:30:41.158028+00:00",
+        "finished_at": "2026-10-15T13:30:42.623208+00:00",
+        "duration_seconds": 1.465
       }
     },
     {
@@ -1504,7 +1780,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20261002T123910Z_6458b08b",
+        "run_id": "20261015T132739Z_dc287c0d",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1513,17 +1789,17 @@
           "mart": 100
         },
         "output_rows": {
-          "clean": 39430,
-          "mart": 61252
+          "clean": 39408,
+          "mart": 61240
         },
         "output_bytes": {
-          "raw": 6227544,
-          "clean": 3011120,
-          "mart": 3383987
+          "raw": 6226923,
+          "clean": 3011602,
+          "mart": 3384737
         },
-        "started_at": "2026-10-02T12:39:10.490134+00:00",
-        "finished_at": "2026-10-02T12:39:39.808339+00:00",
-        "duration_seconds": 29.318
+        "started_at": "2026-10-15T13:27:39.432996+00:00",
+        "finished_at": "2026-10-15T13:28:06.614255+00:00",
+        "duration_seconds": 27.181
       }
     },
     {
@@ -1534,7 +1810,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20261002T123941Z_d6cb64a6",
+        "run_id": "20261015T132807Z_4ee439a3",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1547,13 +1823,73 @@
           "mart": 53
         },
         "output_bytes": {
-          "raw": 8218,
+          "raw": 8219,
           "clean": 3306,
           "mart": 3306
         },
-        "started_at": "2026-10-02T12:39:41.612641+00:00",
-        "finished_at": "2026-10-02T12:39:42.922231+00:00",
-        "duration_seconds": 1.31
+        "started_at": "2026-10-15T13:28:07.905079+00:00",
+        "finished_at": "2026-10-15T13:28:09.323934+00:00",
+        "duration_seconds": 1.419
+      }
+    },
+    {
+      "id": "ipa_domicili_digitali",
+      "source_id": "agid",
+      "status": "ok",
+      "label": "ipa_domicili_digitali",
+      "detail": "anno 2026 — mart: si",
+      "action": "",
+      "run": {
+        "run_id": "20261015T132840Z_a2cf50c4",
+        "year": 2026,
+        "status": "SUCCESS",
+        "quality_score": {
+          "raw": 100,
+          "clean": 100,
+          "mart": 100
+        },
+        "output_rows": {
+          "clean": 40622,
+          "mart": 62422
+        },
+        "output_bytes": {
+          "raw": 3069377,
+          "clean": 1404217,
+          "mart": 1841984
+        },
+        "started_at": "2026-10-15T13:28:40.772847+00:00",
+        "finished_at": "2026-10-15T13:28:56.252136+00:00",
+        "duration_seconds": 15.479
+      }
+    },
+    {
+      "id": "ipa_domicili_digitali_uo",
+      "source_id": "agid",
+      "status": "ok",
+      "label": "ipa_domicili_digitali_uo",
+      "detail": "anno 2026 — mart: si",
+      "action": "",
+      "run": {
+        "run_id": "20261015T132810Z_635b99ab",
+        "year": 2026,
+        "status": "SUCCESS",
+        "quality_score": {
+          "raw": 100,
+          "clean": 100,
+          "mart": 100
+        },
+        "output_rows": {
+          "clean": 103039,
+          "mart": 123199
+        },
+        "output_bytes": {
+          "raw": 6142963,
+          "clean": 2796521,
+          "mart": 3133051
+        },
+        "started_at": "2026-10-15T13:28:10.303451+00:00",
+        "finished_at": "2026-10-15T13:28:39.455836+00:00",
+        "duration_seconds": 29.152
       }
     },
     {
@@ -1564,7 +1900,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20261002T123948Z_3d8d14d8",
+        "run_id": "20261015T132900Z_cfb3d170",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1573,18 +1909,18 @@
           "mart": 100
         },
         "output_rows": {
-          "raw": 23753,
-          "clean": 23753,
-          "mart": 23806
+          "raw": 23761,
+          "clean": 23761,
+          "mart": 23814
         },
         "output_bytes": {
-          "raw": 7488556,
-          "clean": 1876427,
-          "mart": 1879432
+          "raw": 7491009,
+          "clean": 1877753,
+          "mart": 1880756
         },
-        "started_at": "2026-10-02T12:39:48.346375+00:00",
-        "finished_at": "2026-10-02T12:39:53.498209+00:00",
-        "duration_seconds": 5.152
+        "started_at": "2026-10-15T13:29:00.648912+00:00",
+        "finished_at": "2026-10-15T13:29:06.390246+00:00",
+        "duration_seconds": 5.741
       }
     },
     {
@@ -1595,7 +1931,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20261002T123955Z_64263236",
+        "run_id": "20261015T132907Z_0d525555",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1604,17 +1940,17 @@
           "mart": 100
         },
         "output_rows": {
-          "clean": 20967,
-          "mart": 41934
+          "clean": 20981,
+          "mart": 41962
         },
         "output_bytes": {
-          "raw": 3133350,
-          "clean": 1394011,
-          "mart": 1745294
+          "raw": 3140800,
+          "clean": 1395615,
+          "mart": 1747317
         },
-        "started_at": "2026-10-02T12:39:55.391434+00:00",
-        "finished_at": "2026-10-02T12:40:11.246172+00:00",
-        "duration_seconds": 15.855
+        "started_at": "2026-10-15T13:29:07.673259+00:00",
+        "finished_at": "2026-10-15T13:29:22.820360+00:00",
+        "duration_seconds": 15.147
       }
     },
     {
@@ -1625,7 +1961,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20261002T124012Z_bbd3aea9",
+        "run_id": "20261015T132923Z_b337d844",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1634,17 +1970,17 @@
           "mart": 100
         },
         "output_rows": {
-          "clean": 10170,
-          "mart": 13596
+          "clean": 10178,
+          "mart": 13607
         },
         "output_bytes": {
-          "raw": 981850,
-          "clean": 427395,
-          "mart": 487350
+          "raw": 982168,
+          "clean": 427617,
+          "mart": 487669
         },
-        "started_at": "2026-10-02T12:40:12.884021+00:00",
-        "finished_at": "2026-10-02T12:40:18.714070+00:00",
-        "duration_seconds": 5.83
+        "started_at": "2026-10-15T13:29:23.783752+00:00",
+        "finished_at": "2026-10-15T13:29:29.239735+00:00",
+        "duration_seconds": 5.456
       }
     },
     {
@@ -1655,7 +1991,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20261002T124020Z_efa0d8c0",
+        "run_id": "20261015T132930Z_dbd01038",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1664,17 +2000,17 @@
           "mart": 100
         },
         "output_rows": {
-          "clean": 6228,
-          "mart": 7567
+          "clean": 6225,
+          "mart": 7565
         },
         "output_bytes": {
-          "raw": 433812,
-          "clean": 197829,
-          "mart": 221156
+          "raw": 433659,
+          "clean": 197761,
+          "mart": 221066
         },
-        "started_at": "2026-10-02T12:40:20.304896+00:00",
-        "finished_at": "2026-10-02T12:40:23.900872+00:00",
-        "duration_seconds": 3.596
+        "started_at": "2026-10-15T13:29:30.231188+00:00",
+        "finished_at": "2026-10-15T13:29:34.056634+00:00",
+        "duration_seconds": 3.825
       }
     },
     {
@@ -1685,7 +2021,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20261002T124024Z_25c79fe9",
+        "run_id": "20261015T132935Z_28f07891",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -1694,17 +2030,17 @@
           "mart": 100
         },
         "output_rows": {
-          "clean": 122817,
-          "mart": 146375
+          "clean": 123019,
+          "mart": 146583
         },
         "output_bytes": {
-          "raw": 15266425,
-          "clean": 6863598,
-          "mart": 7297562
+          "raw": 15282801,
+          "clean": 6880600,
+          "mart": 7302424
         },
-        "started_at": "2026-10-02T12:40:24.911538+00:00",
-        "finished_at": "2026-10-02T12:41:32.244430+00:00",
-        "duration_seconds": 67.333
+        "started_at": "2026-10-15T13:29:35.308126+00:00",
+        "finished_at": "2026-10-15T13:30:40.631330+00:00",
+        "duration_seconds": 65.323
       }
     }
   ],
@@ -1737,6 +2073,12 @@
             "semantic_type": "municipality_code"
           },
           {
+            "slug": "ipa_aree_organizzative_omogenee",
+            "name": "Ipa Aree Organizzative Omogenee",
+            "column": "codice_catastale_comune",
+            "semantic_type": "cadastral_code"
+          },
+          {
             "slug": "ipa_enti",
             "name": "Ipa Enti",
             "column": "codice_istat",
@@ -1747,6 +2089,12 @@
             "name": "Ipa Enti",
             "column": "codice_comune_istat",
             "semantic_type": "municipality_code"
+          },
+          {
+            "slug": "ipa_enti",
+            "name": "Ipa Enti",
+            "column": "codice_catastale_comune",
+            "semantic_type": "cadastral_code"
           },
           {
             "slug": "ipa_rtd",
@@ -1755,10 +2103,22 @@
             "semantic_type": "municipality_code"
           },
           {
+            "slug": "ipa_rtd",
+            "name": "Ipa Rtd",
+            "column": "codice_catastale_comune",
+            "semantic_type": "cadastral_code"
+          },
+          {
             "slug": "ipa_unita_organizzative",
             "name": "Ipa Unita Organizzative",
             "column": "codice_comune_istat",
             "semantic_type": "municipality_code"
+          },
+          {
+            "slug": "ipa_unita_organizzative",
+            "name": "Ipa Unita Organizzative",
+            "column": "codice_catastale_comune",
+            "semantic_type": "cadastral_code"
           },
           {
             "slug": "who_is_who_pa",
@@ -1771,6 +2131,12 @@
             "name": "Who Is Who Pa",
             "column": "codice_comune_istat",
             "semantic_type": "municipality_code"
+          },
+          {
+            "slug": "who_is_who_pa",
+            "name": "Who Is Who Pa",
+            "column": "codice_catastale_comune",
+            "semantic_type": "cadastral_code"
           },
           {
             "slug": "who_is_who_pa",
@@ -1780,7 +2146,8 @@
           }
         ],
         "types": {
-          "municipality_code": 8
+          "municipality_code": 8,
+          "cadastral_code": 5
         }
       },
       "Ente": {
@@ -1794,10 +2161,28 @@
             "semantic_type": "ipa_code"
           },
           {
+            "slug": "ipa_domicili_digitali",
+            "name": "Ipa Domicili Digitali",
+            "column": "codice_ipa",
+            "semantic_type": "ipa_code"
+          },
+          {
+            "slug": "ipa_domicili_digitali_uo",
+            "name": "Ipa Domicili Digitali Uo",
+            "column": "codice_ipa",
+            "semantic_type": "ipa_code"
+          },
+          {
             "slug": "ipa_enti",
             "name": "Ipa Enti",
             "column": "codice_ipa",
             "semantic_type": "ipa_code"
+          },
+          {
+            "slug": "ipa_enti",
+            "name": "Ipa Enti",
+            "column": "codice_miur",
+            "semantic_type": "miur_code"
           },
           {
             "slug": "ipa_rtd",
@@ -1831,7 +2216,8 @@
           }
         ],
         "types": {
-          "ipa_code": 7
+          "ipa_code": 9,
+          "miur_code": 1
         }
       },
       "Ente (o Impresa)": {
@@ -1845,6 +2231,12 @@
             "semantic_type": "fiscal_code"
           },
           {
+            "slug": "ipa_domicili_digitali",
+            "name": "Ipa Domicili Digitali",
+            "column": "codice_fiscale_ente",
+            "semantic_type": "fiscal_code"
+          },
+          {
             "slug": "ipa_enti",
             "name": "Ipa Enti",
             "column": "codice_fiscale_ente",
@@ -1882,10 +2274,24 @@
           }
         ],
         "types": {
-          "fiscal_code": 7
+          "fiscal_code": 8
         }
       }
     },
-    "bridges": []
+    "bridges": [
+      {
+        "from": {
+          "entity": "Ente",
+          "dataset": "ipa_enti",
+          "via": "miur_code"
+        },
+        "to": {
+          "entity": "Comune",
+          "bridge": "bdap_anagrafe_enti",
+          "on": "codice_ente_miur",
+          "semantic_type": "municipality_code"
+        }
+      }
+    ]
   }
 }
