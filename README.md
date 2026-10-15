@@ -17,6 +17,7 @@ li trasforma in mart analitici e li rende interrogabili via dashboard Streamlit.
 3. **Chi governa ogni ufficio?** → responsabili, contatti, PEC
 4. **Chi sta digitalizzando?** → RTD, servizi digitali, servizi UO
 5. **Qual è la qualità dei dati?** → copertura PEC, responsabili, protocollo
+6. **Chi è raggiungibile digitalmente?** → domicili digitali (PEC/SERC) di enti, AOO e UO (art. 6-ter CAD)
 
 ## Dataset
 
@@ -29,14 +30,16 @@ li trasforma in mart analitici e li rende interrogabili via dashboard Streamlit.
 | ipa_rtd | 2026 | 2 | Responsabili Transizione Digitale (20.880) |
 | ipa_servizi_digitali | 2026 | 2 | Servizi online erogati (10.142) |
 | ipa_servizi_uo | 2026 | 2 | Servizi per ufficio (6.222) |
+| ipa_domicili_digitali | 2026 | 2 | Domicili digitali enti/AOO — PEC/SERC (40.622) |
+| ipa_domicili_digitali_uo | 2026 | 2 | Domicili digitali delle UO (103.039) |
 
 ### Compose
 
 | Compose | Support | Mart | Descrizione |
 |---|---|---|---|
-| who_is_who_pa | 5 | 1 | Vista unica: UO + ente + AOO + RTD + categorie |
+| who_is_who_pa | 7 | 1 | Vista unica: UO + ente + AOO + RTD + categorie + domicili digitali |
 
-### Mart analitici (16 totali)
+### Mart analitici (20 totali)
 
 **Enti** (2): ipa_enti, ipa_enti_riepilogo
 
@@ -51,6 +54,8 @@ li trasforma in mart analitici e li rende interrogabili via dashboard Streamlit.
 **Servizi Digitali** (2): ipa_servizi_digitali, ipa_servizi_digitali_riepilogo
 
 **Servizi UO** (2): ipa_servizi_uo, ipa_servizi_uo_riepilogo
+
+**Domicili digitali** (4): ipa_domicili_digitali, ipa_domicili_digitali_riepilogo, ipa_domicili_digitali_uo, ipa_domicili_digitali_uo_riepilogo
 
 **Compose** (1): who_is_who_pa
 
@@ -87,7 +92,7 @@ cd dashboard && streamlit run app.py
 
 ```
 .github/workflows/          # CI/CD (check reusable)
-datasets/                   # Pipeline toolkit (7 dataset)
+datasets/                   # Pipeline toolkit (9 dataset)
   ipa-enti/
   ipa-unita-organizzative/
   ipa-aree-organizzative-omogenee/
@@ -95,6 +100,8 @@ datasets/                   # Pipeline toolkit (7 dataset)
   ipa-rtd/
   ipa-servizi-digitali/
   ipa-servizi-uo/
+  ipa-domicili-digitali/
+  ipa-domicili-digitali-uo/
 compose/                    # Compose (1)
   who-is-who-pa/
 dashboard/                  # Streamlit (6 pagine)

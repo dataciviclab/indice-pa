@@ -1,0 +1,64 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "ipa_domicili_digitali_uo"
+  source_id: "agid"
+  tags: [pa, ipa, domicili, digitale, pec, serc, uo]
+  category: pa
+  years: [2026]
+
+raw:
+  output_policy: overwrite
+  sources:
+    - name: "ipa_domicili_digitali_uo"
+      type: "http_file"
+      args:
+        url: "https://indicepa.gov.it/ipa-dati/dataset/afef4784-1e7f-4eaa-8f9f-ad6a0f34689b/resource/c306c72c-77ab-4f37-8a3a-6f7888979003/download/domicili-digitali-delle-unita-organizzative.xlsx"
+        filename: "domicili-digitali-delle-unita-organizzative.xlsx"
+      primary: true
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    source: "auto"
+    mode: "latest"
+    header: true
+  required_columns:
+    - domicilio_digitale
+    - tipo_domicilio_digitale
+    - codice_ipa
+    - codice_uni_uo
+    - codice_uni_aoo
+  validate:
+    min_rows: 10000
+    not_null:
+      - domicilio_digitale
+      - codice_uni_uo
+
+mart:
+  tables:
+    - name: "ipa_domicili_digitali_uo"
+      sql: "sql/mart.sql"
+    - name: "ipa_domicili_digitali_uo_riepilogo"
+      sql: "sql/mart_riepilogo.sql"
+  required_tables:
+    - "ipa_domicili_digitali_uo"
+    - "ipa_domicili_digitali_uo_riepilogo"
+  validate:
+    table_rules:
+      ipa_domicili_digitali_uo:
+        primary_key: [codice_uni_uo, domicilio_digitale]
+        not_null:
+          - domicilio_digitale
+          - codice_uni_uo
+        min_rows: 10000
+      ipa_domicili_digitali_uo_riepilogo:
+        primary_key: [codice_ipa]
+        not_null:
+          - codice_ipa
+          - n_domicili_uo
+        min_rows: 5000
+
+validation:
+  fail_on_error: true

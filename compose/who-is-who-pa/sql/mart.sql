@@ -1,5 +1,5 @@
 -- Mart: who-is-who-pa
--- Tabella leggera con le 17 colonne usate dalla dashboard
+-- Tabella leggera con le colonne usate dalla dashboard (+ flag domicili digitali)
 
 SELECT
     codice_ipa,
@@ -18,6 +18,10 @@ SELECT
     denominazione_aoo,
     rtd_nome,
     rtd_cognome,
-    rtd_mail
+    rtd_mail,
+    ente_ha_domicilio,
+    uo_ha_domicilio,
+    uo_domicilio_digitale,
+    uo_tipo_domicilio
 FROM clean_input
 ORDER BY denominazione_ente, descrizione_uo
