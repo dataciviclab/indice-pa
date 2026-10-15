@@ -1,0 +1,63 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "ipa_domicili_digitali"
+  source_id: "agid"
+  tags: [pa, ipa, domicili, digitale, pec, serc]
+  category: pa
+  years: [2026]
+
+raw:
+  output_policy: overwrite
+  sources:
+    - name: "ipa_domicili_digitali"
+      type: "http_file"
+      args:
+        url: "https://indicepa.gov.it/ipa-dati/dataset/2cd86ebc-3b55-462f-9aff-2215a65b1664/resource/0226284e-27e5-4fdd-8bf9-4deba9f4d239/download/domicili-digitali.xlsx"
+        filename: "domicili-digitali.xlsx"
+      primary: true
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    source: "auto"
+    mode: "latest"
+    header: true
+  required_columns:
+    - domicilio_digitale
+    - tipo_domicilio_digitale
+    - codice_ipa
+    - codice_uni_aoo
+  validate:
+    min_rows: 10000
+    not_null:
+      - domicilio_digitale
+      - codice_ipa
+
+mart:
+  tables:
+    - name: "ipa_domicili_digitali"
+      sql: "sql/mart.sql"
+    - name: "ipa_domicili_digitali_riepilogo"
+      sql: "sql/mart_riepilogo.sql"
+  required_tables:
+    - "ipa_domicili_digitali"
+    - "ipa_domicili_digitali_riepilogo"
+  validate:
+    table_rules:
+      ipa_domicili_digitali:
+        primary_key: [codice_ipa, codice_uni_aoo, domicilio_digitale]
+        not_null:
+          - domicilio_digitale
+          - codice_ipa
+        min_rows: 10000
+      ipa_domicili_digitali_riepilogo:
+        primary_key: [codice_ipa]
+        not_null:
+          - codice_ipa
+          - n_domicili
+        min_rows: 5000
+
+validation:
+  fail_on_error: true
