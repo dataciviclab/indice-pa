@@ -1,0 +1,179 @@
+{
+  "source_id": "agid",
+  "generated_at": "2026-10-12T18:40:17+00:00",
+  "report_version": 1,
+  "timing": {},
+  "identity": {
+    "source_id": "agid",
+    "protocol": "ckan",
+    "base_url": "https://indicepa.gov.it/ipa-dati/api/3/action/package_list",
+    "source_kind": "catalog",
+    "observation_mode": "catalog-watch",
+    "verdict": "go",
+    "note": "CKAN proprio di indicepa.gov.it (27 package IPA) — diverso dall'aggregato dati.gov.it monitorato in SO centrale. Il repo consuma URL diretti di indicepa.gov.it (xlsx + datastore dump).",
+    "last_probed": "2026-10-12"
+  },
+  "health": {
+    "radar_status": "GREEN",
+    "http_code": "200",
+    "note": null,
+    "ssl_fallback": false,
+    "streak": 1
+  },
+  "inventory": {
+    "total_items": 27,
+    "method": null,
+    "captured_at": "2026-10-12T18:40:16+00:00",
+    "baseline_value": null,
+    "baseline_date": null,
+    "freshness_hours": 0.0,
+    "delta": null,
+    "delta_pct": 0.0,
+    "formats": {
+      "XLSX,JSON": 15,
+      "TXT,JSON": 12
+    }
+  },
+  "source_check": {
+    "last_run": "2026-10-12T18:40:17Z",
+    "total_scored": 27,
+    "reachable": 0,
+    "csv_count": 0,
+    "with_csv_schema": 0,
+    "avg_readiness": 1.0,
+    "top_items": [
+      {
+        "name": "agid/5baa3eb8-266e-455a-8de8-b1f434c279b2",
+        "score": 1,
+        "year_range": null,
+        "format": "xlsx,json",
+        "reachable": false
+      },
+      {
+        "name": "agid/7a2db7d8-4123-41b4-a1d6-d7b712a193f1",
+        "score": 1,
+        "year_range": null,
+        "format": "txt,json",
+        "reachable": false
+      },
+      {
+        "name": "agid/amministrazioni",
+        "score": 1,
+        "year_range": null,
+        "format": "txt,json",
+        "reachable": false
+      },
+      {
+        "name": "agid/aree-organizzative-omogenee",
+        "score": 1,
+        "year_range": null,
+        "format": "xlsx,json",
+        "reachable": false
+      },
+      {
+        "name": "agid/aree-organizzative-omogenee-cessate",
+        "score": 1,
+        "year_range": null,
+        "format": "xlsx,json",
+        "reachable": false
+      }
+    ],
+    "coverage_pct": 100.0,
+    "formato_aperto": {
+      "score": 10.0,
+      "perc_aperto": 0.0,
+      "perc_reachable": 0.0,
+      "total": 27,
+      "fonte": "source_check"
+    }
+  },
+  "datasets_in_use": [
+    {
+      "slug": "ipa_aree_organizzative_omogenee",
+      "status": "incubating",
+      "upstream": [
+        {
+          "kind": "url",
+          "id": "https://indicepa.gov.it/ipa-dati/dataset/15c8cc52-749a-4f64-9bd1-9c3bb4f6f3df/resource/cdaded04-f84e-4193-a720-47d6d5f422aa/download/aree-organizzative-omogenee.xlsx"
+        }
+      ]
+    },
+    {
+      "slug": "ipa_categorie_enti",
+      "status": "incubating",
+      "upstream": [
+        {
+          "kind": "url",
+          "id": "https://indicepa.gov.it/ipa-dati/dataset/1c7034cd-8514-485d-8ff7-c72b5cb09a07/resource/84ebb2e7-0e61-427b-a1dd-ab8bb2a84f07/download/categorie-enti.xlsx"
+        }
+      ]
+    },
+    {
+      "slug": "ipa_enti",
+      "status": "incubating",
+      "upstream": [
+        {
+          "kind": "url",
+          "id": "https://indicepa.gov.it/ipa-dati/datastore/dump/d09adf99-dc10-4349-8c53-27b1e5aa97b6?bom=True"
+        }
+      ]
+    },
+    {
+      "slug": "ipa_rtd",
+      "status": "incubating",
+      "upstream": [
+        {
+          "kind": "url",
+          "id": "https://indicepa.gov.it/ipa-dati/dataset/f4f505b7-a86e-44dc-8215-fba0e0c4aac9/resource/41553dea-0701-429e-b906-8b71e441a281/download/responsabili-della-transizione-al-digitale.xlsx"
+        }
+      ]
+    },
+    {
+      "slug": "ipa_servizi_digitali",
+      "status": "incubating",
+      "upstream": [
+        {
+          "kind": "url",
+          "id": "https://indicepa.gov.it/ipa-dati/dataset/8afa9350-34da-4b29-8647-01abcfe9c29c/resource/7ecd6b8e-ede7-41c6-a16d-fe263ac6baf1/download/servizi-digitali.xlsx"
+        }
+      ]
+    },
+    {
+      "slug": "ipa_servizi_uo",
+      "status": "incubating",
+      "upstream": [
+        {
+          "kind": "url",
+          "id": "https://indicepa.gov.it/ipa-dati/dataset/d64c149e-a60e-4a10-b9cf-7230b0db8437/resource/aa9a34a8-6e0a-4720-9275-a7b1feb4e3a0/download/servizi-delle-unita-organizzative.xlsx"
+        }
+      ]
+    },
+    {
+      "slug": "ipa_unita_organizzative",
+      "status": "incubating",
+      "upstream": [
+        {
+          "kind": "url",
+          "id": "https://indicepa.gov.it/ipa-dati/dataset/c8d2e2b3-a9f1-4123-bc8b-26315ed20fce/resource/b0aa1f6c-f135-4c8a-b416-396fed4e1a5d/download/unita-organizzative.xlsx"
+        }
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "type": "validated_metrics",
+      "result": "stabile",
+      "detail": "Metriche da validated.parquet."
+    }
+  ],
+  "operational_verdict": {
+    "label": "STABLE",
+    "score": "stable",
+    "triggers": [
+      "all_green"
+    ],
+    "next_action": null
+  },
+  "repo": "indice-pa",
+  "catalog_schema_version": 1
+}

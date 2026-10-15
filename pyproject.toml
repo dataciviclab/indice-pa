@@ -43,9 +43,22 @@ dev = [
 pipeline = [
     "dataciviclab-toolkit @ git+https://github.com/dataciviclab/toolkit.git",
 ]
+# Catalog engine per-repo (probe, inventory, source report).
+# Tag stabili: https://github.com/dataciviclab/source-observatory/tags
+observatory = [
+    "dataciviclab-source-observatory @ git+https://github.com/dataciviclab/source-observatory.git@main",
+]
 
 [project.urls]
 Home = "https://github.com/dataciviclab/indice-pa"
 
 [tool.toolkit.extends]
 source_id = "indice-pa"
+
+[tool.observatory]
+source_id = "agid"
+protocol = "ckan"
+base_url = "https://indicepa.gov.it/ipa-dati/api/3/action/package_list"
+observation_mode = "catalog-watch"
+verdict = "go"
+note = "CKAN proprio di indicepa.gov.it (27 package IPA) — diverso dall'aggregato dati.gov.it monitorato in SO centrale. Il repo consuma URL diretti di indicepa.gov.it (xlsx + datastore dump)."
