@@ -1,8 +1,8 @@
 """Qualità Dati — copertura campi, placeholder, problemi noti."""
 
-import streamlit as st
 import pandas as pd
-from sources import load_mart
+import streamlit as st
+from sources import domicili_per_tipologia, kpi_domicili, load_mart
 
 st.title("Qualità Dati")
 st.caption("Verifica completezza e pulizia dei dati IPA")
@@ -15,7 +15,7 @@ df_aoo = load_mart("ipa_aree_organizzative_omogenee", slug="ipa_aree_organizzati
 # -- KPI qualità --------------------------------------------------------
 st.subheader("Indici di completezza")
 
-placeholder_names = {'comandante', 'rtd', 'da_indicare', 'da compilare', 'non indicato', 
+placeholder_names = {'comandante', 'rtd', 'da_indicare', 'da compilare', 'non indicato',
                      'non assegnato', 'non', 'n.d.', 'n/d', '-', 'nc', 'non specificato',
                      'non previsto', 'non attribuito', 'non individuato'}
 
@@ -50,7 +50,7 @@ with col2:
     st.markdown("**Responsabili per tipologia ente**")
     df_tip = (
         df_uo.groupby("tipologia")
-        .agg(n_uo=("denominazione_ente", "count"), 
+        .agg(n_uo=("denominazione_ente", "count"),
              con_resp=("uo_resp_nome", lambda x: x.notna().sum()))
         .reset_index()
     )
@@ -90,12 +90,46 @@ st.dataframe(
     },
 )
 
+# -- Domicili digitali (registro AgID) ----------------------------------
+st.subheader("Domicili digitali — registro AgID (art. 6-ter CAD)")
+st.caption("Fonte autorevole: dataset AgID ipa_domicili_digitali / ipa_domicili_digitali_uo")
+
+dom = kpi_domicili()
+tot_enti = len(df_enti)
+
+d1, d2, d3, d4 = st.columns(4)
+pct_enti_dom = 100 * dom["enti_con_domicilio"] / tot_enti if tot_enti else 0
+d1.metric("Enti con domicilio", f"{dom['enti_con_domicilio']:,}", f"{pct_enti_dom:.1f}%")
+d2.metric("Domicili enti/AOO", f"{dom['totale_domicili_ente']:,}")
+pct_uo_dom = 100 * dom["uo_con_domicilio"] / len(df_uo) if len(df_uo) else 0
+d3.metric("UO con domicilio", f"{dom['uo_con_domicilio']:,}", f"{pct_uo_dom:.1f}%")
+d4.metric("Domicili UO", f"{dom['totale_domicili_uo']:,}")
+
+st.caption(
+    f"Split tipo domicilio a livello ente/AOO: PEC {dom['totale_pec_ente']:,} · SERC {dom['totale_serc_ente']:,}"
+)
+
+with st.expander("Copertura domicilio UO per tipologia ente"):
+    df_tip_dom = domicili_per_tipologia()
+    st.dataframe(
+        df_tip_dom[["tipologia", "n_uo", "uo_con_domicilio", "copertura_pct"]],
+        width="stretch",
+        hide_index=True,
+        column_config={
+            "tipologia": st.column_config.TextColumn("Tipologia", width="large"),
+            "n_uo": st.column_config.NumberColumn("N° UO", width="small"),
+            "uo_con_domicilio": st.column_config.NumberColumn("Con domicilio", width="small"),
+            "copertura_pct": st.column_config.NumberColumn("Copertura %", width="small", format="%.1f%%"),
+        },
+    )
+
 # -- Note ---------------------------------------------------------------
 st.info("""
 **Note sulla qualità dati IPA:**
 - I valori placeholder (`Comandante`, `RTD`, `da_indicare`, `non`) vengono trattati come NULL nel clean
 - Il campo `protocollo_informatico` è opzionale e molti enti non lo compilano
-- La copertura PEC è all'83% degli enti, ma solo al 48% delle UO
+- La copertura PEC dai campi anagrafici delle UO non va confusa con il registro AgID dei domicili digitali: i numeri autorevoli sono nella sezione "Domicili digitali" sopra
+- I domicili UO coprono solo le UO associate ad AOO (vincolo della fonte AgID); le UO senza AOO non compaiono nel registro UO
 - Il 17% delle UO non ha un'AOO associata
 """)
 

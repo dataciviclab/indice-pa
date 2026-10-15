@@ -2,19 +2,25 @@
 
 import streamlit as st
 from sources import (
-    kpi_digitale, top_enti_servizi_digitali,
-    tipologie_servizi_digitali, categorie_servizi_uo,
+    categorie_servizi_uo,
+    kpi_digitale,
+    kpi_totali,
+    tipologie_servizi_digitali,
+    top_enti_servizi_digitali,
 )
 
 st.title("Trasformazione Digitale")
-st.caption("RTD, servizi digitali e servizi delle UO — art. 17 CAD")
+st.caption("RTD, servizi digitali, servizi delle UO e domicili digitali — art. 17 e 6-ter CAD")
 
 # -- KPI ----------------------------------------------------------------
 kpi = kpi_digitale()
-c1, c2, c3 = st.columns(3)
+kpi_tot = kpi_totali()
+c1, c2, c3, c4 = st.columns(4)
 c1.metric("Enti con RTD", f"{kpi['enti_con_rtd']:,}")
 c2.metric("Servizi digitali", f"{kpi['totale_servizi_digitali']:,}")
 c3.metric("Servizi UO", f"{kpi['totale_servizi_uo']:,}")
+pct_dom = kpi_tot["enti_con_domicilio"] / kpi_tot["enti"] if kpi_tot["enti"] else 0
+c4.metric("Enti con domicilio digitale", f"{kpi_tot['enti_con_domicilio']:,}", f"{pct_dom:.1%}")
 
 # -- Top enti servizi digitali ------------------------------------------
 st.subheader("Top enti per servizi digitali")

@@ -34,5 +34,6 @@ st.dataframe(
         "rtd_nome": st.column_config.TextColumn("RTD Nome", width="small"),
         "rtd_cognome": st.column_config.TextColumn("RTD Cognome", width="small"),
         "rtd_mail": st.column_config.TextColumn("RTD Email", width="medium"),
+        "uo_domicilio_digitale": st.column_config.TextColumn("Domicilio digitale UO", width="medium"),
     },
 )

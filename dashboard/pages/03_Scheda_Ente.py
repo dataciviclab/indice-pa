@@ -29,6 +29,11 @@ vertice = f"{info.get('vertice_titolo', '')} {info.get('vertice_nome', '')} {inf
 if vertice:
     st.info(f"**Vertice:** {vertice}")
 
+if info.get("ente_ha_domicilio"):
+    st.success("**Domicilio digitale ente:** presente nel registro AgID (PEC/SERC)")
+else:
+    st.warning("**Domicilio digitale ente:** NON presente nel registro AgID")
+
 sito = info.get("sito", "")
 if sito:
     st.write(f"**Sito istituzionale:** {sito}")
@@ -49,7 +54,7 @@ with tab_uo:
         df_uo[[
             "descrizione_uo", "uo_resp_nome", "uo_resp_cognome",
             "uo_resp_email", "uo_resp_telefono", "uo_mail", "uo_tipo_mail",
-            "denominazione_aoo",
+            "denominazione_aoo", "uo_domicilio_digitale",
         ]],
         width="stretch",
         hide_index=True,
@@ -62,6 +67,7 @@ with tab_uo:
             "uo_mail": st.column_config.TextColumn("Email UO", width="medium"),
             "uo_tipo_mail": st.column_config.TextColumn("Tipo", width="small"),
             "denominazione_aoo": st.column_config.TextColumn("AOO", width="medium"),
+            "uo_domicilio_digitale": st.column_config.TextColumn("Domicilio digitale", width="medium"),
         },
     )
 

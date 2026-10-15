@@ -2,9 +2,13 @@
 
 import streamlit as st
 from sources import (
-    kpi_totali, enti_per_categoria, top_enti_per_uo,
-    copertura_responsabili, enti_in_liquidazione, vertici_per_titolo,
+    copertura_responsabili,
+    enti_in_liquidazione,
+    enti_per_categoria,
     get_last_updated,
+    kpi_totali,
+    top_enti_per_uo,
+    vertici_per_titolo,
 )
 
 st.title("Panoramica")
@@ -22,6 +26,13 @@ c4.metric("Enti in liquidazione", f"{liq}")
 # -- Copertura responsabili ---------------------------------------------
 cop = copertura_responsabili()
 st.progress(cop["pct"], text=f"Copertura responsabili UO: {cop['pct']:.1%} ({cop['con_responsabile']:,} / {cop['totale_uo']:,})")
+
+# -- Copertura domicili digitali ----------------------------------------
+pct_dom = kpi["enti_con_domicilio"] / kpi["enti"] if kpi["enti"] else 0
+st.progress(
+    pct_dom,
+    text=f"Enti con domicilio digitale (registro AgID): {pct_dom:.1%} ({kpi['enti_con_domicilio']:,} / {kpi['enti']:,})",
+)
 
 # -- Due colonne --------------------------------------------------------
 col1, col2 = st.columns(2)
